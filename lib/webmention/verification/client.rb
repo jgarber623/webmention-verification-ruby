@@ -3,7 +3,7 @@ module Webmention
     class Client
       HTTP_HEADERS_OPTS = {
         accept: '*/*',
-        user_agent: 'Webmention Endpoint Discovery (https://rubygems.org/gems/webmention-endpoint)'
+        user_agent: 'Webmention Verification Client (https://rubygems.org/gems/webmention-verification)'
       }.freeze
 
       attr_reader :source, :target
