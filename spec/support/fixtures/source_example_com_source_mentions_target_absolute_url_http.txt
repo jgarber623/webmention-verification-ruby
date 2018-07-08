@@ -1,0 +1,3 @@
+http://target.example.com/post/100
+
+Hello, world!
