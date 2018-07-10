@@ -2,6 +2,18 @@ describe Webmention::Verification::Verifier do
   let(:response) { instance_double(HTTP::Response, is_a?: true, mime_type: 'text/plain') }
   let(:target_uri) { instance_double(Addressable::URI) }
 
+  let :mime_types do
+    ['application/json', 'text/html', 'text/plain']
+  end
+
+  let :subclasses do
+    [
+      Webmention::Verification::HtmlVerifier,
+      Webmention::Verification::JsonVerifier,
+      Webmention::Verification::PlaintextVerifier
+    ]
+  end
+
   context 'when response is invalid' do
     it 'raises an ArgumentError' do
       message = 'response must be an HTTP::Response (given String)'
@@ -26,15 +38,15 @@ describe Webmention::Verification::Verifier do
     end
   end
 
-  it 'returns an array of supported mime types' do
-    mime_types = ['application/json', 'text/plain']
-
-    expect(described_class.mime_types).to match_array(mime_types)
+  describe '#mime_types' do
+    it 'returns an array' do
+      expect(described_class.mime_types).to match_array(mime_types)
+    end
   end
 
-  it 'returns an array of subclasses' do
-    subclasses = [Webmention::Verification::JsonVerifier, Webmention::Verification::PlaintextVerifier]
-
-    expect(described_class.subclasses).to match_array(subclasses)
+  describe '#subclasses' do
+    it 'returns an array' do
+      expect(described_class.subclasses).to match_array(subclasses)
+    end
   end
 end

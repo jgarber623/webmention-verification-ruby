@@ -37,4 +37,57 @@ describe Webmention::Verification::Client do
       expect { described_class.new(source, '/') }.to raise_error(Webmention::Verification::ArgumentError, message)
     end
   end
+
+  describe '.response' do
+    let(:client) { described_class.new(source, target) }
+    let(:request) { stub_request(:get, source) }
+
+    context 'when rescuing an HTTP::ConnectionError' do
+      before do
+        request.to_raise(HTTP::ConnectionError)
+      end
+
+      it 'raises a ConnectionError' do
+        expect { client.response }.to raise_error(Webmention::Verification::ConnectionError)
+      end
+    end
+
+    context 'when rescuing an HTTP::TimeoutError' do
+      before do
+        request.to_raise(HTTP::TimeoutError)
+      end
+
+      it 'raises a TimeoutError' do
+        expect { client.response }.to raise_error(Webmention::Verification::TimeoutError)
+      end
+    end
+
+    context 'when rescuing an HTTP::Redirector::TooManyRedirectsError' do
+      before do
+        request.to_raise(HTTP::Redirector::TooManyRedirectsError)
+      end
+
+      it 'raises a TooManyRedirectsError' do
+        expect { client.response }.to raise_error(Webmention::Verification::TooManyRedirectsError)
+      end
+    end
+  end
+
+  describe '.verified?' do
+    let :http_response_headers do
+      { 'Content-Type': 'unsupported/type' }
+    end
+
+    before do
+      stub_request(:get, source).to_return(headers: http_response_headers)
+    end
+
+    context 'when response MIME type is unsupported/type' do
+      it 'raises an UnsupportedMimeTypeError' do
+        message = 'Unsupported MIME Type: unsupported/type'
+
+        expect { described_class.new(source, target).verified? }.to raise_error(Webmention::Verification::UnsupportedMimeTypeError, message)
+      end
+    end
+  end
 end

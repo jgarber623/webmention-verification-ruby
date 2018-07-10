@@ -1,8 +1,8 @@
 describe Webmention::Verification, '.verified?' do
-  let(:source) { 'https://source.example.com' }
+  let(:source) { 'https://source.example.com/no-mention' }
   let(:target) { 'https://target.example.com/post/100' }
 
-  let :http_response_headers do
+  let(:http_response_headers) do
     { 'Content-Type': 'text/plain' }
   end
 
