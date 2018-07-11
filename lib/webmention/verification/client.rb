@@ -14,11 +14,10 @@ module Webmention
 
         @source = source
         @target = target
+        @strict = strict
 
         raise ArgumentError, 'source must be an absolute URI (e.g. https://example.com/post/100)' unless source_uri.absolute?
         raise ArgumentError, 'target must be an absolute URI (e.g. https://example.com/post/100)' unless target_uri.absolute?
-
-        @strict = strict
       end
 
       def response
@@ -49,13 +48,7 @@ module Webmention
       def verified?
         raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}" unless verifier_for_mime_type
 
-        verifier_opts = {
-          response: response,
-          strict: @strict,
-          target_uri: target_uri
-        }
-
-        verifier_for_mime_type.new(verifier_opts).verified?
+        verifier_for_mime_type.new(response, target, strict: @strict).verified?
       end
 
       private

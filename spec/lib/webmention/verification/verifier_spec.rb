@@ -1,6 +1,6 @@
 describe Webmention::Verification::Verifier do
   let(:response) { instance_double(HTTP::Response, is_a?: true, mime_type: 'text/plain') }
-  let(:target_uri) { instance_double(Addressable::URI) }
+  let(:target) { 'https://target.example.com/post/100' }
 
   let :mime_types do
     ['application/json', 'text/html', 'text/plain']
@@ -16,9 +16,9 @@ describe Webmention::Verification::Verifier do
 
   context 'when response is invalid' do
     it 'raises an ArgumentError' do
-      message = 'response must be an HTTP::Response (given String)'
+      message = 'response must be an HTTP::Response (given NilClass)'
 
-      expect { described_class.new(response: '', target_uri: target_uri) }.to raise_error(Webmention::Verification::ArgumentError, message)
+      expect { described_class.new(nil, target) }.to raise_error(Webmention::Verification::ArgumentError, message)
     end
 
     it 'raises an UnsupportedMimeTypeError' do
@@ -26,15 +26,15 @@ describe Webmention::Verification::Verifier do
 
       allow(response).to receive(:mime_type).and_return('unsupported/type')
 
-      expect { described_class.new(response: response, target_uri: target_uri) }.to raise_error(Webmention::Verification::UnsupportedMimeTypeError, message)
+      expect { described_class.new(response, target) }.to raise_error(Webmention::Verification::UnsupportedMimeTypeError, message)
     end
   end
 
-  context 'when target_uri is invalid' do
+  context 'when target is invalid' do
     it 'raises an ArgumentError' do
-      message = 'target_uri must be an Addressable::URI (given String)'
+      message = 'target must be a String (given NilClass)'
 
-      expect { described_class.new(response: response, target_uri: '') }.to raise_error(Webmention::Verification::ArgumentError, message)
+      expect { described_class.new(response, nil) }.to raise_error(Webmention::Verification::ArgumentError, message)
     end
   end
 
