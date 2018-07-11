@@ -31,25 +31,6 @@ RSpec.shared_examples 'when in strict mode' do
   end
 end
 
-RSpec.shared_examples 'when in strict mode testing extended element matching' do
-  let(:target) { 'https://target.example.com/post/100' }
-  let(:client) { described_class.new(source, target, strict: false) }
-
-  before do
-    stub_request(:get, source).to_return(headers: http_response_headers, body: read_fixture(source, file_format))
-  end
-
-  %w[area audio blockquote del embed img-src img-srcset ins object q source-src source-srcset video-track video].each do |element|
-    context "when matching #{element}" do
-      let(:source) { "https://source.example.com/mentions-target-absolute-url-#{element}" }
-
-      it 'returns true' do
-        expect(client.verified?).to be(true)
-      end
-    end
-  end
-end
-
 RSpec.shared_examples 'when not in strict mode' do
   let(:target) { 'https://target.example.com/post/100' }
   let(:client) { described_class.new(source, target, strict: false) }

@@ -1,0 +1,10 @@
+{
+  "rels": {
+    "url": "https://target.example.com/post/100",
+    "values": ["Hello", "world!"]
+  },
+  "urls": {
+    "name": "Hello, world!",
+    "url": "https://target.example.com/post/200"
+  }
+}
