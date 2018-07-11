@@ -1,5 +1,6 @@
 require 'addressable/uri'
 require 'http'
+require 'json'
 require 'nokogiri'
 
 require 'webmention/verification/version'

@@ -11,7 +11,7 @@
 
 ## Key Features
 
-- **Coming soon!** Compliant with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention spcification](https://www.w3.org/TR/webmention/).
+- Compliant with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention spcification](https://www.w3.org/TR/webmention/).
 - Supports Ruby 2.4 and newer.
 
 ## Getting Started
@@ -117,7 +117,9 @@ Interested in helping improve webmention-verification-ruby? Awesome! Your help i
 
 ## Acknowledgments
 
-webmention-verification-ruby wouldn't exist without Webmention and the hard work put in by everyone involved in the [IndieWeb](https://indieweb.org) movement. Additionally, the [LinkExtractor class](https://github.com/Zegnat/php-linkextractor/blob/master/src/LinkExtractor.php#L32-L51) in [Zegnat](https://github.com/Zegnat)'s [php-linkextractor](https://github.com/Zegnat/php-linkextractor) was invaluable in the devleopment of the `HTMLVerifier` class.
+webmention-verification-ruby wouldn't exist without Webmention and the hard work put in by everyone involved in the [IndieWeb](https://indieweb.org) movement.
+
+The [`LinkExtractor` class](https://github.com/Zegnat/php-linkextractor/blob/master/src/LinkExtractor.php#L32-L51) in [Zegnat](https://github.com/Zegnat)'s [php-linkextractor](https://github.com/Zegnat/php-linkextractor) was invaluable in the devleopment of the `HtmlVerifier` class. Intridea's [Hashie](https://rubygems.org/gems/hashie) gem (specifically the [`DeepLocate` extension](https://github.com/intridea/hashie/blob/master/lib/hashie/extensions/deep_locate.rb)) also provided inspiration for the `JsonVerifier` class.
 
 webmention-verification-ruby is written and maintained by [Jason Garber](https://sixtwothree.org).
 
