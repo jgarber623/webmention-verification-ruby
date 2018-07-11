@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Jason Garber']
   spec.email         = ['jason@sixtwothree.org']
 
-  spec.summary       = 'Verify a received Webmention.'
+  spec.summary       = 'Verify a received webmention.'
   spec.description   = spec.summary
   spec.homepage      = 'https://github.com/jgarber623/webmention-verification-ruby'
   spec.license       = 'MIT'

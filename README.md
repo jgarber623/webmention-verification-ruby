@@ -11,7 +11,7 @@
 
 ## Key Features
 
-- Compliant with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention spcification](https://www.w3.org/TR/webmention/).
+- Compliant with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention specification](https://www.w3.org/TR/webmention/).
 - Supports Ruby 2.4 and newer.
 
 ## Getting Started
