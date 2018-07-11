@@ -1,6 +1,6 @@
 # webmention-verification-ruby
 
-**A Ruby gem for verifying a received [Webmention](https://indieweb.org/Webmention).**
+**A Ruby gem for verifying a received [webmention](https://indieweb.org/Webmention).**
 
 [![Gem](https://img.shields.io/gem/v/webmention-verification.svg?style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
 [![Downloads](https://img.shields.io/gem/dt/webmention-verification.svg?style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
@@ -40,7 +40,7 @@ $ bundle install
 
 ### Basic Usage
 
-With webmention-verification-ruby added to your project's `Gemfile` and installed, you may verify a received Webmention by doing:
+With webmention-verification-ruby added to your project's `Gemfile` and installed, you may verify a received webmention by doing:
 
 ```ruby
 require 'webmention/verification'
@@ -53,7 +53,7 @@ verified = Webmention::Verification.verified?(source, target)
 puts verified # returns Boolean
 ```
 
-This example assumes that you've received a Webmention from `https://source.example.com/post/100` (the "source") to your URL, `https://target.example.com/post/100` (the "target"). The above code will return `true` if the source URL links to your target URL and `fase` if it doesn't.
+This example assumes that you've received a webmention from `https://source.example.com/post/100` (the "source") to your URL, `https://target.example.com/post/100` (the "target"). The above code will return `true` if the source URL links to your target URL and `false` if it doesn't.
 
 ### Advanced Usage
 
@@ -78,7 +78,7 @@ puts client.response   # returns HTTP::Response
 puts client.verified?  # Returns Boolean
 ```
 
-**By default, webmention-verification-ruby will strictly match URLs.** You may disable strict matching which allows webmention-verification-ruby to match both `http://` and `https://` URLs. This is useful for matching Webmentions your website may have received before upgrading your website to use HTTPS.
+**By default, webmention-verification-ruby will strictly match URLs.** You may disable strict matching which allows webmention-verification-ruby to match both `http://` and `https://` URLs. This is useful for matching webmentions your website may have received before it was available exclusively via HTTPS.
 
 To disable strict mode, pass `strict: false` when instantiating a `Webmention::Verification::Client`:
 
@@ -94,6 +94,48 @@ puts client.verified?  # Returns Boolean
 ```
 
 The above example will match either `https://source.example.com/post/100` _or_ `http://source.example.com/post/100` in the target URL.
+
+### Verifiers
+
+webmention-verification-ruby verifies [HTML](https://www.w3.org/TR/html/), [JSON](https://json.org), and plaintext files in accordance with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention specification](https://www.w3.org/TR/webmention/):
+
+> The receiver **should** use per-media-type rules to determine whether the source document mentions the target URL.
+
+In plaintext documents, webmention-verification-ruby will search the source URL for exact matches of the target URL. If the source URL is a JSON document, key/value pairs whose value equals the target URL are matched.
+
+HTML documents are searched for a variety of elements and attributes whose values may be (or include) URLs:
+
+| Element      | Attributes      |
+|:-------------|:----------------|
+| `a`          | `href`          |
+| `area`       | `href`          |
+| `audio`      | `src`           |
+| `blockquote` | `cite`          |
+| `del`        | `cite`          |
+| `embed`      | `src`           |
+| `img`        | `src`, `srcset` |
+| `ins`        | `cite`          |
+| `object`     | `data`          |
+| `q`          | `cite`          |
+| `source`     | `src`, `srcset` |
+| `track`      | `src`           |
+| `video`      | `src`           |
+
+You may work directly with webmention-verification-ruby's verifiers by doing:
+
+```ruby
+require 'webmention/verification'
+
+response = HTTP.get('https://source.example.com/post/100')
+target = 'https://target.example.com/post/100'
+
+verifier = Webmention::Verification::HtmlVerifier.new(response, target)
+
+verifier.verified? # returns Boolean
+verifier.results   # returns Array
+```
+
+In the example above, `verifier.results` will return an array of HTML elements that link to the provided target URL. An empty array will be returned if no elements linking to the target URL are found in the source URL.
 
 ### Exception Handling
 
