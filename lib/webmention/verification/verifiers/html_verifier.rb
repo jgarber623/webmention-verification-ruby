@@ -37,11 +37,11 @@ module Webmention
       end
 
       def srcset_attribute_regexp
-        /(?:^|\b)#{target_regexp_str}\s/
+        @srcset_attribute_regexp ||= /(?:^|\b)#{target_regexp_str}\s/
       end
 
       def target_regexp
-        /^#{target_regexp_str}$/
+        @target_regexp ||= /^#{target_regexp_str}$/
       end
     end
   end

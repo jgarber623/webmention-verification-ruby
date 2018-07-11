@@ -12,7 +12,7 @@ module Webmention
       end
 
       def target_regexp
-        /(?:^|\s)#{target_regexp_str}(?:\s|$)/
+        @target_regexp ||= /(?:^|\s)#{target_regexp_str}(?:\s|$)/
       end
     end
   end
