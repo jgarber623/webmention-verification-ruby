@@ -117,7 +117,7 @@ Interested in helping improve webmention-verification-ruby? Awesome! Your help i
 
 ## Acknowledgments
 
-webmention-verification-ruby wouldn't exist without Webmention and the hard work put in by everyone involved in the [IndieWeb](https://indieweb.org) movement.
+webmention-verification-ruby wouldn't exist without Webmention and the hard work put in by everyone involved in the [IndieWeb](https://indieweb.org) movement. Additionally, the [LinkExtractor class](https://github.com/Zegnat/php-linkextractor/blob/master/src/LinkExtractor.php#L32-L51) in [Zegnat](https://github.com/Zegnat)'s [php-linkextractor](https://github.com/Zegnat/php-linkextractor) was invaluable in the devleopment of the `HTMLVerifier` class.
 
 webmention-verification-ruby is written and maintained by [Jason Garber](https://sixtwothree.org).
 
