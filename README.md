@@ -75,7 +75,7 @@ puts client.target_uri # returns Addressable::URI
 
 puts client.response   # returns HTTP::Response
 
-puts client.verified?  # Returns Boolean
+puts client.verified?  # returns Boolean
 ```
 
 **By default, webmention-verification-ruby will strictly match URLs.** You may disable strict matching which allows webmention-verification-ruby to match both `http://` and `https://` URLs. This is useful for matching webmentions your website may have received before it was available exclusively via HTTPS.
@@ -90,7 +90,7 @@ target = 'https://target.example.com/post/100'
 
 client = Webmention::Verification::Client.new(source, target, strict: false)
 
-puts client.verified?  # Returns Boolean
+puts client.verified?  # returns Boolean
 ```
 
 The above example will match either `https://source.example.com/post/100` _or_ `http://source.example.com/post/100` in the target URL.
