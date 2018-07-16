@@ -11,7 +11,7 @@
 
 ## Key Features
 
-- Compliant with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention specification](https://www.w3.org/TR/webmention/).
+- Compliant with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention Recommendation](https://www.w3.org/TR/webmention/).
 - Supports Ruby 2.4 and newer.
 
 ## Getting Started
@@ -97,7 +97,7 @@ The above example will match either `https://source.example.com/post/100` _or_ `
 
 ### Verifiers
 
-webmention-verification-ruby verifies [HTML](https://www.w3.org/TR/html/), [JSON](https://json.org), and plaintext files in accordance with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention specification](https://www.w3.org/TR/webmention/):
+webmention-verification-ruby verifies [HTML](https://www.w3.org/TR/html/), [JSON](https://json.org), and plaintext files in accordance with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention Recommendation](https://www.w3.org/TR/webmention/):
 
 > The receiver **should** use per-media-type rules to determine whether the source document mentions the target URL.
 
