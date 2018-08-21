@@ -38,7 +38,7 @@ describe Webmention::Verification::Client do
     end
   end
 
-  describe '.response' do
+  describe '#response' do
     let(:client) { described_class.new(source, target) }
     let(:request) { stub_request(:get, source) }
 
@@ -73,7 +73,7 @@ describe Webmention::Verification::Client do
     end
   end
 
-  describe '.verified?' do
+  describe '#verified?' do
     let :http_response_headers do
       { 'Content-Type': 'unsupported/type' }
     end

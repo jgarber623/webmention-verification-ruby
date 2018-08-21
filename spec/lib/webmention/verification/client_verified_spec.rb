@@ -1,4 +1,4 @@
-describe Webmention::Verification::Client, '.verified?' do
+describe Webmention::Verification::Client, '#verified?' do
   context 'when response MIME type is application/json' do
     let(:file_format) { 'json' }
 

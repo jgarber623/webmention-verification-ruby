@@ -38,13 +38,13 @@ describe Webmention::Verification::Verifier do
     end
   end
 
-  describe '#mime_types' do
+  describe '.mime_types' do
     it 'returns an array' do
       expect(described_class.mime_types).to match_array(mime_types)
     end
   end
 
-  describe '#subclasses' do
+  describe '.subclasses' do
     it 'returns an array' do
       expect(described_class.subclasses).to match_array(subclasses)
     end
