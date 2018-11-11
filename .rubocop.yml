@@ -1,6 +1,10 @@
 require:
   - rubocop-rspec
 
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
 Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb

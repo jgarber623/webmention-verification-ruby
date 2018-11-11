@@ -2,7 +2,7 @@ module Webmention
   module Verification
     class Client
       HTTP_HEADERS_OPTS = {
-        accept: '*/*',
+        accept:     '*/*',
         user_agent: 'Webmention Verification Client (https://rubygems.org/gems/webmention-verification)'
       }.freeze
 
