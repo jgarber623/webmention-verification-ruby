@@ -13,6 +13,9 @@ Metrics/BlockLength:
 Metrics/LineLength:
   Enabled: false
 
+Naming/RescuedExceptionsVariableName:
+  PreferredName: error
+
 RSpec/NestedGroups:
   Max: 4
 
