@@ -4,7 +4,8 @@ require 'json'
 require 'nokogiri'
 
 require 'webmention/verification/version'
-require 'webmention/verification/error'
+require 'webmention/verification/exceptions'
+
 require 'webmention/verification/client'
 require 'webmention/verification/verifier'
 

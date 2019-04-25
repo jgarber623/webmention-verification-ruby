@@ -25,24 +25,24 @@ module Webmention
           connect: 10,
           read: 10
         ).get(source_uri)
-      rescue HTTP::ConnectionError => error
-        raise ConnectionError, error
-      rescue HTTP::TimeoutError => error
-        raise TimeoutError, error
-      rescue HTTP::Redirector::TooManyRedirectsError => error
-        raise TooManyRedirectsError, error
+      rescue HTTP::ConnectionError => exception
+        raise ConnectionError, exception
+      rescue HTTP::TimeoutError => exception
+        raise TimeoutError, exception
+      rescue HTTP::Redirector::TooManyRedirectsError => exception
+        raise TooManyRedirectsError, exception
       end
 
       def source_uri
         @source_uri ||= Addressable::URI.parse(source)
-      rescue Addressable::URI::InvalidURIError => error
-        raise InvalidURIError, error
+      rescue Addressable::URI::InvalidURIError => exception
+        raise InvalidURIError, exception
       end
 
       def target_uri
         @target_uri ||= Addressable::URI.parse(target)
-      rescue Addressable::URI::InvalidURIError => error
-        raise InvalidURIError, error
+      rescue Addressable::URI::InvalidURIError => exception
+        raise InvalidURIError, exception
       end
 
       def verified?
