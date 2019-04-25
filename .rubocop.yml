@@ -4,7 +4,6 @@ require:
 
 Layout/AlignHash:
   EnforcedColonStyle: table
-  EnforcedLastArgumentHashStyle: ignore_implicit
 
 Metrics/BlockLength:
   Exclude:
