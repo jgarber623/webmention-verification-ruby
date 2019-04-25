@@ -1,18 +1,22 @@
 module Webmention
   module Verification
-    class PlaintextVerifier < Verifier
-      def self.mime_types
-        ['text/plain']
-      end
+    module Verifiers
+      class PlaintextVerifier < BaseVerifier
+        def self.mime_types
+          ['text/plain']
+        end
 
-      private
+        Verifiers.register(self)
 
-      def parse_response_body
-        response_body.scan(target_regexp)
-      end
+        private
 
-      def target_regexp
-        @target_regexp ||= /(?:^|\s)#{target_regexp_str}(?:\s|$)/
+        def parse_response_body
+          response_body.scan(target_regexp)
+        end
+
+        def target_regexp
+          @target_regexp ||= /(?:^|\s)#{target_regexp_str}(?:\s|$)/
+        end
       end
     end
   end

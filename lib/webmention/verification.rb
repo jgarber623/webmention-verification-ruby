@@ -7,8 +7,9 @@ require 'webmention/verification/version'
 require 'webmention/verification/exceptions'
 
 require 'webmention/verification/client'
-require 'webmention/verification/verifier'
+require 'webmention/verification/registerable'
 
+require 'webmention/verification/verifiers'
 require 'webmention/verification/verifiers/html_verifier'
 require 'webmention/verification/verifiers/json_verifier'
 require 'webmention/verification/verifiers/plaintext_verifier'

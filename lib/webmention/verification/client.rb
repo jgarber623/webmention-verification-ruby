@@ -54,7 +54,7 @@ module Webmention
       private
 
       def verifier_for_mime_type
-        @verifier_for_mime_type ||= Verifier.subclasses.find { |verifier| verifier.mime_types.include?(response.mime_type) }
+        @verifier_for_mime_type ||= Verifiers.registered[response.mime_type]
       end
     end
   end
