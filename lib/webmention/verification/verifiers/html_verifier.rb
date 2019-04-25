@@ -8,7 +8,7 @@ module Webmention
 
         Verifiers.register(self)
 
-        HTML_ATTRIBUTE_MAPPINGS = {
+        HTML_ATTRIBUTE_MAP = {
           cite:   %w[blockquote del ins q],
           data:   %w[object],
           href:   %w[a area],
@@ -24,19 +24,15 @@ module Webmention
         end
 
         def parse_response_body
-          matches = []
-
-          HTML_ATTRIBUTE_MAPPINGS.each do |attribute, elements|
-            elements.each { |element| matches << search_doc(element, attribute) }
-          end
-
-          matches.flatten
+          HTML_ATTRIBUTE_MAP.each_with_object([]) { |(*args), matches| matches << search_doc(*args) }.flatten
         end
 
-        def search_doc(element, attribute)
+        def search_doc(attribute, elements)
           regexp = attribute == :srcset ? srcset_attribute_regexp : target_regexp
 
-          doc.css("#{element}[#{attribute}]").find_all { |node| node[attribute].match?(regexp) }
+          doc.css(*elements.map { |element| "#{element}[#{attribute}]" }).find_all do |node|
+            node[attribute].match?(regexp)
+          end
         end
 
         def srcset_attribute_regexp
