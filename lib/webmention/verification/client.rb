@@ -8,13 +8,13 @@ module Webmention
 
       attr_reader :source, :target
 
-      def initialize(source, target, strict: true)
+      def initialize(source, target, **options)
         raise ArgumentError, "source must be a String (given #{source.class.name})" unless source.is_a?(String)
         raise ArgumentError, "target must be a String (given #{target.class.name})" unless target.is_a?(String)
 
         @source = source
         @target = target
-        @strict = strict
+        @options = options
 
         raise ArgumentError, 'source must be an absolute URI (e.g. https://example.com/post/100)' unless source_uri.absolute?
         raise ArgumentError, 'target must be an absolute URI (e.g. https://example.com/post/100)' unless target_uri.absolute?
@@ -48,7 +48,7 @@ module Webmention
       def verified?
         raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}" unless verifier_for_mime_type
 
-        verifier_for_mime_type.new(response, target, strict: @strict).verified?
+        verifier_for_mime_type.new(response, target, @options).verified?
       end
 
       private
