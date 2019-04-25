@@ -1,4 +1,23 @@
 describe Webmention::Verification::Client, '#verified?' do
+  context 'when response MIME type is unsupported/type' do
+    let(:source) { 'https://source.example.com' }
+    let(:target) { 'https://target.example.com/post/100' }
+
+    let :http_response_headers do
+      { 'Content-Type': 'unsupported/type' }
+    end
+
+    before do
+      stub_request(:get, source).to_return(headers: http_response_headers)
+    end
+
+    it 'raises an UnsupportedMimeTypeError' do
+      message = 'Unsupported MIME Type: unsupported/type'
+
+      expect { described_class.new(source, target).verified? }.to raise_error(Webmention::Verification::UnsupportedMimeTypeError, message)
+    end
+  end
+
   context 'when response MIME type is application/json' do
     let(:file_format) { 'json' }
 
