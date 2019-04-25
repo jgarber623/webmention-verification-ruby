@@ -129,7 +129,7 @@ require 'webmention/verification'
 response = HTTP.get('https://source.example.com/post/100')
 target = 'https://target.example.com/post/100'
 
-verifier = Webmention::Verification::HtmlVerifier.new(response, target)
+verifier = Webmention::Verification::Verifiers::HtmlVerifier.new(response, target)
 
 verifier.verified? # returns Boolean
 verifier.results   # returns Array
