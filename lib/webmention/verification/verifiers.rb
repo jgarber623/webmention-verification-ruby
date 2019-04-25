@@ -29,6 +29,10 @@ module Webmention
           @response_body ||= @response.body.to_s
         end
 
+        def target_regexp
+          @target_regexp ||= /^#{target_regexp_str}$/
+        end
+
         def target_regexp_str
           return @target if @options.fetch(:strict, true)
 

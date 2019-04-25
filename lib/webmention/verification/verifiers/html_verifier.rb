@@ -38,10 +38,6 @@ module Webmention
         def srcset_attribute_regexp
           @srcset_attribute_regexp ||= /(?:^|\b)#{target_regexp_str}\s/
         end
-
-        def target_regexp
-          @target_regexp ||= /^#{target_regexp_str}$/
-        end
       end
     end
   end
