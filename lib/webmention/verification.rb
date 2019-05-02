@@ -1,12 +1,14 @@
+require 'json'
+
 require 'addressable/uri'
 require 'http'
-require 'json'
 require 'nokogiri'
 
 require 'webmention/verification/version'
 require 'webmention/verification/exceptions'
 
 require 'webmention/verification/client'
+require 'webmention/verification/http_request'
 require 'webmention/verification/registerable'
 
 require 'webmention/verification/verifiers'
