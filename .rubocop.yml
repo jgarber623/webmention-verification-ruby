@@ -8,6 +8,7 @@ Layout/AlignHash:
 
 Metrics/BlockLength:
   Exclude:
+    - webmention-verification.gemspec
     - spec/**/*.rb
 
 Metrics/LineLength:
