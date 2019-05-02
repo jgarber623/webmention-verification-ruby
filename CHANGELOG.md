@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 / 2019-05-01
+
+- Add `Webmention::Verification.client` method.
+- Rename base `Error` class to `WebmentionVerificationError` ([0eb3a9a](https://github.com/jgarber623/webmention-verification-ruby/commit/0eb3a9a)).
+- Add `HttpRequest` class ([c7602c9](https://github.com/jgarber623/webmention-verification-ruby/commit/c7602c9)).
+
 ## 1.0.0 / 2019-04-25
 
 - Use pre-release HTTP gem (see @httprb/http#489) ([bdcfdad](https://github.com/jgarber623/webmention-verification-ruby/commit/bdcfdad)).
