@@ -3,6 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'webmention/verification/version'
 
+# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   spec.required_ruby_version = ['>= 2.4', '< 2.7']
 
@@ -39,3 +40,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'http', '~> 5.0.0.pre'
   spec.add_runtime_dependency 'nokogiri', '~> 1.10'
 end
+# rubocop:enable Metrics/BlockLength
