@@ -50,14 +50,14 @@ target = 'https://target.example.com/post/100'
 
 verified = Webmention::Verification.verified?(source, target)
 
-puts verified # returns Boolean
+puts verified # => Boolean true or false
 ```
 
 This example assumes that you've received a webmention from `https://source.example.com/post/100` (the "source") to your URL, `https://target.example.com/post/100` (the "target"). The above code will return `true` if the source URL links to your target URL and `false` if it doesn't.
 
 ### Advanced Usage
 
-Should the need arise, you may work directly with the `Webmention::Verification::Client` class:
+Should the need arise, you may work with the `Webmention::Verification::Client` class:
 
 ```ruby
 require 'webmention/verification'
@@ -65,17 +65,17 @@ require 'webmention/verification'
 source = 'https://source.example.com/post/100'
 target = 'https://target.example.com/post/100'
 
-client = Webmention::Verification::Client.new(source, target)
+client = Webmention::Verification.client(source, target)
 
-puts client.source     # returns String: 'https://source.example.com/post/100'
-puts client.target     # returns String: 'https://target.example.com/post/100'
+puts client.source     # => 'https://source.example.com/post/100'
+puts client.target     # => 'https://target.example.com/post/100'
 
-puts client.source_uri # returns Addressable::URI
-puts client.target_uri # returns Addressable::URI
+puts client.source_uri # => #<Addressable::URI>
+puts client.target_uri # => #<Addressable::URI>
 
-puts client.response   # returns HTTP::Response
+puts client.response   # => #<HTTP::Response>
 
-puts client.verified?  # returns Boolean
+puts client.verified?  # => Boolean true or false
 ```
 
 **By default, webmention-verification-ruby will strictly match URLs.** You may disable strict matching which allows webmention-verification-ruby to match both `http://` and `https://` URLs. This is useful for matching webmentions your website may have received before it was available exclusively via HTTPS.
@@ -88,9 +88,9 @@ require 'webmention/verification'
 source = 'https://source.example.com/post/100'
 target = 'https://target.example.com/post/100'
 
-client = Webmention::Verification::Client.new(source, target, strict: false)
+client = Webmention::Verification.client(source, target, strict: false)
 
-puts client.verified?  # returns Boolean
+puts client.verified?  # => Boolean true or false
 ```
 
 The above example will match either `https://source.example.com/post/100` _or_ `http://source.example.com/post/100` in the target URL.
@@ -131,15 +131,15 @@ target = 'https://target.example.com/post/100'
 
 verifier = Webmention::Verification::Verifiers::HtmlVerifier.new(response, target)
 
-verifier.verified? # returns Boolean
-verifier.results   # returns Array
+verifier.verified? # => Boolean true or false
+verifier.results   # => Array
 ```
 
 In the example above, `verifier.results` will return an array of HTML elements that link to the provided target URL. An empty array will be returned if no elements linking to the target URL are found in the source URL.
 
 ### Exception Handling
 
-There are several exceptions that may be raised by webmention-verification-ruby's underlying dependencies. These errors are raised as subclasses of `Webmention::Verification::Error` (which itself is a subclass of `StandardError`).
+There are several exceptions that may be raised by webmention-verification-ruby's underlying dependencies. These errors are raised as subclasses of `WebmentionVerificationError` (which itself is a subclass of `StandardError`).
 
 From [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
 
