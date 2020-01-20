@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 / 2020-01-20
+
+- Expand supported Ruby versions to include 2.7 (48d9b7b)
+
 ## 1.1.1 / 2019-08-31
 
 - Update Addressable gem (0c9368e)

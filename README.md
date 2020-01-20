@@ -18,7 +18,7 @@
 
 Before installing and using webmention-verification-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.4 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
 
-webmention-verification-ruby is developed using Ruby 2.4.9 and is additionally tested against Ruby 2.5 and 2.6 using [Travis CI](https://travis-ci.com/jgarber623/webmention-verification-ruby).
+webmention-verification-ruby is developed using Ruby 2.4.9 and is additionally tested against Ruby 2.5, 2.6, and 2.7 using [Travis CI](https://travis-ci.com/jgarber623/webmention-verification-ruby).
 
 ## Installation
 
