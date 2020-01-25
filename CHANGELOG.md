@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0 / 2020-01-25
+
+- Downgrade [HTTP](https://github.com/httprb/http) gem constraint to ~> 4.3 (090f590)
+
 ## 1.2.0 / 2020-01-20
 
 - Expand supported Ruby versions to include 2.7 (48d9b7b)
