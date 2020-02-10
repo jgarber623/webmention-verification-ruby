@@ -9,10 +9,8 @@ require 'webmention/verification/exceptions'
 
 require 'webmention/verification/client'
 require 'webmention/verification/http_request'
-require 'webmention/verification/registerable'
 
 require 'webmention/verification/verifiers'
-
 require 'webmention/verification/verifiers/base_verifier'
 require 'webmention/verification/verifiers/html_verifier'
 require 'webmention/verification/verifiers/json_verifier'
