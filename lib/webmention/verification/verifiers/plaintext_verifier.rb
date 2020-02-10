@@ -2,9 +2,7 @@ module Webmention
   module Verification
     module Verifiers
       class PlaintextVerifier < BaseVerifier
-        def self.mime_types
-          ['text/plain']
-        end
+        @mime_types = ['text/plain']
 
         Verifiers.register(self)
 

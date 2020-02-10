@@ -2,9 +2,7 @@ module Webmention
   module Verification
     module Verifiers
       class JsonVerifier < BaseVerifier
-        def self.mime_types
-          ['application/json']
-        end
+        @mime_types = ['application/json']
 
         Verifiers.register(self)
 

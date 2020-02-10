@@ -2,9 +2,7 @@ module Webmention
   module Verification
     module Verifiers
       class HtmlVerifier < BaseVerifier
-        def self.mime_types
-          ['text/html']
-        end
+        @mime_types = ['text/html']
 
         Verifiers.register(self)
 
