@@ -1,6 +1,11 @@
 module Webmention
   module Verification
     class Client
+      HTTP_CLIENT_HEADERS = {
+        accept:     '*/*',
+        user_agent: 'Webmention Verification Client (https://rubygems.org/gems/webmention-verification)'
+      }.freeze
+
       attr_reader :source, :target
 
       # @param source [String]
@@ -20,8 +25,13 @@ module Webmention
       end
 
       # @return [HTTP::Response]
+      # @raise [Webmention::Verification::ConnectionError, Webmention::Verification::TimeoutError, Webmention::Verification::TooManyRedirectsError]
       def response
-        @response ||= HttpRequest.get(source_uri)
+        @response ||= HTTP.follow.headers(HTTP_CLIENT_HEADERS).timeout(connect: 10, read: 10).get(source_uri)
+      rescue HTTP::ConnectionError,
+             HTTP::TimeoutError,
+             HTTP::Redirector::TooManyRedirectsError => exception
+        raise Webmention::Verification.const_get(exception.class.name.split('::').last), exception
       end
 
       # @return [Addressable::URI]
