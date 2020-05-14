@@ -65,7 +65,7 @@ require 'webmention/verification'
 source = 'https://source.example.com/post/100'
 target = 'https://target.example.com/post/100'
 
-client = Webmention::Verification.client(source, target)
+client = Webmention::Verification::Client.new(source, target)
 
 puts client.source     # => 'https://source.example.com/post/100'
 puts client.target     # => 'https://target.example.com/post/100'
@@ -88,7 +88,7 @@ require 'webmention/verification'
 source = 'https://source.example.com/post/100'
 target = 'https://target.example.com/post/100'
 
-client = Webmention::Verification.client(source, target, strict: false)
+client = Webmention::Verification::Client.new(source, target, strict: false)
 
 puts client.verified?  # => Boolean true or false
 ```

@@ -16,14 +16,8 @@ require 'webmention/verification/verifiers/plaintext_verifier'
 
 module Webmention
   module Verification
-    class << self
-      def client(*args)
-        Client.new(*args)
-      end
-
-      def verified?(*args)
-        client(*args).verified?
-      end
+    def self.verified?(*args)
+      Client.new(*args).verified?
     end
   end
 end
