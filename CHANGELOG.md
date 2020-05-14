@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.0 / unreleased
+
+- **Breaking Change:** Remove `Webmention::Verification.client` convenience method (af575d7)
+- **Breaking Change:** Remove `HttpRequest` class (112f9d3)
+- Move development dependencies to `Gemfile` (81cdfdf)
+- Update development Ruby version to 2.4.10 (a13bca0)
+
 ## 2.0.0 / 2020-01-25
 
 - Downgrade [HTTP](https://github.com/httprb/http) gem constraint to ~> 4.3 (090f590)
