@@ -2,16 +2,17 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
+AllCops:
+  NewCops: enable
+
 Layout/HashAlignment:
   EnforcedColonStyle: table
-  EnforcedHashRocketStyle: table
 
 Layout/LineLength:
   Enabled: false
 
 Metrics/BlockLength:
   Exclude:
-    - webmention-verification.gemspec
     - spec/**/*.rb
 
 Naming/RescuedExceptionsVariableName:
