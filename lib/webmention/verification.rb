@@ -16,8 +16,22 @@ require 'webmention/verification/verifiers/plaintext_verifier'
 
 module Webmention
   module Verification
-    def self.verified?(*args)
-      Client.new(*args).verified?
+    # Determine whether or not source URI links to target URI.
+    #
+    # @example
+    #   source = 'https://source.example.com/post/100'
+    #   target = 'https://target.example.com/post/100'
+    #
+    #   puts Webmention::Verification.verified?(source, target)
+    #   #=> TrueClass or FalseClass
+    #
+    # @param source [String]
+    # @param target [String]
+    # @param options [Hash]
+    # @option options [Boolean] :strict (true)
+    # @return [Boolean]
+    def self.verified?(source, target, **options)
+      Client.new(source, target, **options).verified?
     end
   end
 end

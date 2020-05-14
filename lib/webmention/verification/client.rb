@@ -8,6 +8,17 @@ module Webmention
 
       attr_reader :source, :target
 
+      # Create a client used to determine whether or not source URI links to target URI.
+      #
+      # @example
+      #   source = 'https://source.example.com/post/100'
+      #   target = 'https://target.example.com/post/100'
+      #
+      #   client = Webmention::Verification::Client.new(source, target)
+      #
+      #   puts client.verified?
+      #   #=> TrueClass or FalseClass
+      #
       # @param source [String]
       # @param target [String]
       # @param options [Hash]
