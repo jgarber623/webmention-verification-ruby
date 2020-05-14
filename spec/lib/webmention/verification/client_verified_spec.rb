@@ -1,4 +1,4 @@
-describe Webmention::Verification::Client, '#verified?' do
+RSpec.describe Webmention::Verification::Client, '#verified?' do
   context 'when response MIME type is unsupported/type' do
     let(:source) { 'https://source.example.com' }
     let(:target) { 'https://target.example.com/post/100' }

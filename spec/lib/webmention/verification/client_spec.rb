@@ -1,4 +1,4 @@
-describe Webmention::Verification::Client do
+RSpec.describe Webmention::Verification::Client do
   let(:source) { 'https://source.example.com' }
   let(:target) { 'https://target.example.com/post/100' }
 
