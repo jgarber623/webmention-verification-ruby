@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.0 / unreleased
+## 3.0.0 / 2020-05-14
 
 - **Breaking Change:** Remove `Webmention::Verification.client` convenience method (af575d7)
 - **Breaking Change:** Remove `HttpRequest` class (112f9d3)
