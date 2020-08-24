@@ -4,7 +4,7 @@
 
 [![Gem](https://img.shields.io/gem/v/webmention-verification.svg?style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
 [![Downloads](https://img.shields.io/gem/dt/webmention-verification.svg?style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
-[![Build](https://img.shields.io/travis/com/jgarber623/webmention-verification-ruby/master.svg?style=for-the-badge)](https://travis-ci.com/jgarber623/webmention-verification-ruby)
+[![Build](https://img.shields.io/travis/com/jgarber623/webmention-verification-ruby/main.svg?style=for-the-badge)](https://travis-ci.com/jgarber623/webmention-verification-ruby)
 [![Dependencies](https://img.shields.io/depfu/jgarber623/webmention-verification-ruby.svg?style=for-the-badge)](https://depfu.com/github/jgarber623/webmention-verification-ruby)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/webmention-verification-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/webmention-verification-ruby)
 [![Coverage](https://img.shields.io/codeclimate/c/jgarber623/webmention-verification-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/webmention-verification-ruby/code)
@@ -155,7 +155,7 @@ webmention-verification-ruby will also raise a `Webmention::Verification::Unsupp
 
 ## Contributing
 
-Interested in helping improve webmention-verification-ruby? Awesome! Your help is greatly appreciated. See [CONTRIBUTING.md](https://github.com/jgarber623/webmention-verification-ruby/blob/master/CONTRIBUTING.md) for details.
+Interested in helping improve webmention-verification-ruby? Awesome! Your help is greatly appreciated. See [CONTRIBUTING.md](https://github.com/jgarber623/webmention-verification-ruby/blob/main/CONTRIBUTING.md) for details.
 
 ## Acknowledgments
 
