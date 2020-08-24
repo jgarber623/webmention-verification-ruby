@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.0 / 2020-08-23
+
+- **Breaking Change:** Update minimum supported Ruby version to 2.5 (096012e)
+- Update development Ruby version to 2.5.8 (3b3f38e)
+
 ## 3.0.0 / 2020-05-14
 
 - **Breaking Change:** Remove `Webmention::Verification.client` convenience method (af575d7)
