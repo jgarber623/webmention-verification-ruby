@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'addressable', '~> 2.7'
   spec.add_runtime_dependency 'http', '~> 4.4'
-  spec.add_runtime_dependency 'nokogiri', '~> 1.10'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.11'
 end
