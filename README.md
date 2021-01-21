@@ -2,12 +2,11 @@
 
 **A Ruby gem for verifying a received [webmention](https://indieweb.org/Webmention).**
 
-[![Gem](https://img.shields.io/gem/v/webmention-verification.svg?style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
-[![Downloads](https://img.shields.io/gem/dt/webmention-verification.svg?style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
-[![Build](https://img.shields.io/travis/com/jgarber623/webmention-verification-ruby/main.svg?style=for-the-badge)](https://travis-ci.com/jgarber623/webmention-verification-ruby)
-[![Dependencies](https://img.shields.io/depfu/jgarber623/webmention-verification-ruby.svg?style=for-the-badge)](https://depfu.com/github/jgarber623/webmention-verification-ruby)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/webmention-verification-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/webmention-verification-ruby)
-[![Coverage](https://img.shields.io/codeclimate/c/jgarber623/webmention-verification-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/webmention-verification-ruby/code)
+[![Gem](https://img.shields.io/gem/v/webmention-verification.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
+[![Downloads](https://img.shields.io/gem/dt/webmention-verification.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
+[![Build](https://img.shields.io/circleci/build/github/jgarber623/webmention-verification-ruby?logo=circleci&style=for-the-badge)](https://app.circleci.com/pipelines/github/jgarber623/webmention-verification-ruby)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/webmention-verification-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/webmention-verification-ruby)
+[![Coverage](https://img.shields.io/codeclimate/c/jgarber623/webmention-verification-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/webmention-verification-ruby/code)
 
 ## Key Features
 
