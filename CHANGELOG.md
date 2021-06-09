@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.0.0 / 2021-06-08
+
+- Add `Webmention::Verification::Client#inspect` method (361c437)
+- Update [HTTP](https://github.com/httprb/http) gem constraint to ~> 5.0 (4063764)
+- Simplify exception handling (3f8f12c)
+- Rename base `WebmentionVerificationError` class to `Error` (2b12338)
+- Add support for Ruby 3.0 (05baf08)
+- Update development Ruby version to 2.5.9 (821a488)
+
 ## 4.0.0 / 2020-08-23
 
 - **Breaking Change:** Update minimum supported Ruby version to 2.5 (096012e)
