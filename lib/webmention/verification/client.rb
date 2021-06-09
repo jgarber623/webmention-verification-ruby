@@ -26,7 +26,7 @@ module Webmention
       def initialize(source, target, **options)
         @source = source.to_str
         @target = target.to_str
-        @options = options.to_h
+        @options = options
 
         raise ArgumentError, 'source must be an absolute URI (e.g. https://example.com/post/100)' unless source_uri.absolute?
         raise ArgumentError, 'target must be an absolute URI (e.g. https://example.com/post/100)' unless target_uri.absolute?
@@ -66,7 +66,7 @@ module Webmention
       def verified?
         raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}" unless verifier_for_mime_type
 
-        verifier_for_mime_type.new(response, target, @options).verified?
+        verifier_for_mime_type.new(response, target, **@options).verified?
       end
 
       private
