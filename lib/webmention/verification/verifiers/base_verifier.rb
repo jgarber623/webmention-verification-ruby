@@ -6,11 +6,8 @@ module Webmention
       end
 
       def initialize(response, target, **options)
-        raise ArgumentError, "response must be an HTTP::Response (given #{response.class.name})" unless response.is_a?(HTTP::Response)
-        raise ArgumentError, "target must be a String (given #{target.class.name})" unless target.is_a?(String)
-
         @response = response
-        @target = target
+        @target = target.to_str
         @options = options
 
         raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}" unless self.class.mime_types.include?(response.mime_type)

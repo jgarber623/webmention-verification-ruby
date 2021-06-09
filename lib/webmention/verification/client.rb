@@ -24,11 +24,8 @@ module Webmention
       # @param options [Hash]
       # @option options [Boolean] :strict (true)
       def initialize(source, target, **options)
-        raise ArgumentError, "source must be a String (given #{source.class.name})" unless source.is_a?(String)
-        raise ArgumentError, "target must be a String (given #{target.class.name})" unless target.is_a?(String)
-
-        @source = source
-        @target = target
+        @source = source.to_str
+        @target = target.to_str
         @options = options
 
         raise ArgumentError, 'source must be an absolute URI (e.g. https://example.com/post/100)' unless source_uri.absolute?
