@@ -32,6 +32,11 @@ module Webmention
         raise ArgumentError, 'target must be an absolute URI (e.g. https://example.com/post/100)' unless target_uri.absolute?
       end
 
+      # @return [String]
+      def inspect
+        format(%(#<#{self.class.name}:%#0x source: #{source.inspect} target: #{target.inspect} options: #{@options.inspect}>), object_id)
+      end
+
       # @return [HTTP::Response]
       # @raise [Webmention::Verification::ConnectionError, Webmention::Verification::TimeoutError, Webmention::Verification::TooManyRedirectsError]
       def response
