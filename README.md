@@ -138,7 +138,7 @@ In the example above, `verifier.results` will return an array of HTML elements t
 
 ### Exception Handling
 
-There are several exceptions that may be raised by webmention-verification-ruby's underlying dependencies. These errors are raised as subclasses of `WebmentionVerificationError` (which itself is a subclass of `StandardError`).
+There are several exceptions that may be raised by webmention-verification-ruby's underlying dependencies. These errors are raised as subclasses of `Webmention::Verification::Error` (which itself is a subclass of `StandardError`).
 
 From [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
 
@@ -146,9 +146,7 @@ From [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
 
 From [httprb/http](https://github.com/httprb/http):
 
-- `Webmention::Verification::ConnectionError`
-- `Webmention::Verification::TimeoutError`
-- `Webmention::Verification::TooManyRedirectsError`
+- `Webmention::Verification::HttpError`
 
 webmention-verification-ruby will also raise a `Webmention::Verification::UnsupportedMimeTypeError` when encountering an `HTTP::Response` instance with an unsupported MIME type.
 

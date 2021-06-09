@@ -39,10 +39,8 @@ module Webmention
       # @raise [Webmention::Verification::ConnectionError, Webmention::Verification::TimeoutError, Webmention::Verification::TooManyRedirectsError]
       def response
         @response ||= HTTP.follow.headers(HTTP_CLIENT_HEADERS).timeout(connect: 10, read: 10).get(source_uri)
-      rescue HTTP::ConnectionError,
-             HTTP::TimeoutError,
-             HTTP::Redirector::TooManyRedirectsError => exception
-        raise Webmention::Verification.const_get(exception.class.name.split('::').last), exception
+      rescue HTTP::Error => exception
+        raise HttpError, exception
       end
 
       # @return [Addressable::URI]

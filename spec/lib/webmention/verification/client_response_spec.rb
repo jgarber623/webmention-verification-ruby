@@ -5,33 +5,13 @@ RSpec.describe Webmention::Verification::Client, '#response' do
   let(:client) { described_class.new(source, target) }
   let(:request) { stub_request(:get, source) }
 
-  context 'when rescuing an HTTP::ConnectionError' do
+  context 'when rescuing an HTTP::Error' do
     before do
-      request.to_raise(HTTP::ConnectionError)
+      request.to_raise(HTTP::Error)
     end
 
-    it 'raises a ConnectionError' do
-      expect { client.response }.to raise_error(Webmention::Verification::ConnectionError)
-    end
-  end
-
-  context 'when rescuing an HTTP::TimeoutError' do
-    before do
-      request.to_raise(HTTP::TimeoutError)
-    end
-
-    it 'raises a TimeoutError' do
-      expect { client.response }.to raise_error(Webmention::Verification::TimeoutError)
-    end
-  end
-
-  context 'when rescuing an HTTP::Redirector::TooManyRedirectsError' do
-    before do
-      request.to_raise(HTTP::Redirector::TooManyRedirectsError)
-    end
-
-    it 'raises a TooManyRedirectsError' do
-      expect { client.response }.to raise_error(Webmention::Verification::TooManyRedirectsError)
+    it 'raises an HttpError' do
+      expect { client.response }.to raise_error(Webmention::Verification::HttpError)
     end
   end
 end

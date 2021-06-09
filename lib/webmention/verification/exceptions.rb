@@ -1,17 +1,13 @@
 module Webmention
   module Verification
-    class WebmentionVerificationError < StandardError; end
+    class Error < StandardError; end
 
-    class ArgumentError < WebmentionVerificationError; end
+    class ArgumentError < Error; end
 
-    class ConnectionError < WebmentionVerificationError; end
+    class HttpError < Error; end
 
-    class InvalidURIError < WebmentionVerificationError; end
+    class InvalidURIError < Error; end
 
-    class TimeoutError < WebmentionVerificationError; end
-
-    class TooManyRedirectsError < WebmentionVerificationError; end
-
-    class UnsupportedMimeTypeError < WebmentionVerificationError; end
+    class UnsupportedMimeTypeError < Error; end
   end
 end
