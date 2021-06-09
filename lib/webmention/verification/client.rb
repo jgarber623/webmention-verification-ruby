@@ -26,7 +26,7 @@ module Webmention
       def initialize(source, target, **options)
         @source = source.to_str
         @target = target.to_str
-        @options = options
+        @options = options.to_h
 
         raise ArgumentError, 'source must be an absolute URI (e.g. https://example.com/post/100)' unless source_uri.absolute?
         raise ArgumentError, 'target must be an absolute URI (e.g. https://example.com/post/100)' unless target_uri.absolute?
