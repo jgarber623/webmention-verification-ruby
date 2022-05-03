@@ -5,46 +5,44 @@ RSpec.describe Webmention::Verification::Client, '#verified?' do
     let(:source) { 'https://source.example.com' }
     let(:target) { 'https://target.example.com/post/100' }
 
-    let :http_response_headers do
-      { 'Content-Type': 'unsupported/type' }
-    end
-
     before do
-      stub_request(:get, source).to_return(headers: http_response_headers)
+      stub_request(:get, source).to_return(headers: { 'Content-Type': 'unsupported/type' })
     end
 
     it 'raises an UnsupportedMimeTypeError' do
-      message = 'Unsupported MIME Type: unsupported/type'
-
-      expect { described_class.new(source, target).verified? }.to raise_error(Webmention::Verification::UnsupportedMimeTypeError, message)
+      expect { described_class.new(source, target).verified? }.to raise_error(
+        Webmention::Verification::UnsupportedMimeTypeError, 'Unsupported MIME Type: unsupported/type'
+      )
     end
   end
 
   context 'when response MIME type is application/json' do
     let(:file_format) { 'json' }
 
-    let :http_response_headers do
+    let(:http_response_headers) do
       { 'Content-Type': 'application/json' }
     end
 
-    it_behaves_like 'when in strict mode'
-    it_behaves_like 'when not in strict mode'
+    it_behaves_like 'strict mode is true'
+    it_behaves_like 'strict mode is false'
 
     context 'when in strict mode testing deep value matching' do
       let(:target) { 'https://target.example.com/post/100' }
-      let(:client) { described_class.new(source, target, strict: false) }
 
       before do
-        stub_request(:get, source).to_return(headers: http_response_headers, body: read_fixture(source, file_format))
+        stub_request(:get, source).to_return(
+          headers: http_response_headers,
+          body: read_fixture(source, file_format)
+        )
       end
 
       %w[array hash].each do |obj|
         context "when matching #{obj}" do
+          subject(:verification) { described_class.new(source, target, strict: false).verified? }
+
           let(:source) { "https://source.example.com/mentions-target-absolute-url-deep-#{obj}" }
 
-          it 'returns true' do
-            expect(client.verified?).to be(true)
-          end
+          it { is_expected.to be(true) }
         end
       end
     end
@@ -57,24 +55,29 @@ RSpec.describe Webmention::Verification::Client, '#verified?' do
       { 'Content-Type': 'text/html' }
     end
 
-    it_behaves_like 'when in strict mode'
-    it_behaves_like 'when not in strict mode'
+    it_behaves_like 'strict mode is true'
+    it_behaves_like 'strict mode is false'
 
     context 'when in strict mode testing extended element matching' do
       let(:target) { 'https://target.example.com/post/100' }
-      let(:client) { described_class.new(source, target, strict: false) }
 
       before do
-        stub_request(:get, source).to_return(headers: http_response_headers, body: read_fixture(source, file_format))
+        stub_request(:get, source).to_return(
+          headers: http_response_headers,
+          body: read_fixture(source, file_format)
+        )
       end
 
-      %w[area audio blockquote del embed img-src img-srcset ins object q source-src source-srcset video-track video].each do |element|
+      %w[
+        area audio blockquote del embed img-src img-srcset ins
+        object q source-src source-srcset video-track video
+      ].each do |element|
         context "when matching #{element}" do
+          subject(:verification) { described_class.new(source, target, strict: false).verified? }
+
           let(:source) { "https://source.example.com/mentions-target-absolute-url-#{element}" }
 
-          it 'returns true' do
-            expect(client.verified?).to be(true)
-          end
+          it { is_expected.to be(true) }
         end
       end
     end
@@ -87,7 +90,7 @@ RSpec.describe Webmention::Verification::Client, '#verified?' do
       { 'Content-Type': 'text/plain' }
     end
 
-    it_behaves_like 'when in strict mode'
-    it_behaves_like 'when not in strict mode'
+    it_behaves_like 'strict mode is true'
+    it_behaves_like 'strict mode is false'
   end
 end
