@@ -30,8 +30,10 @@ module Webmention
         @target = target.to_str
         @options = options
 
-        raise ArgumentError, 'source must be an absolute URI (e.g. https://example.com/post/100)' unless source_uri.absolute?
-        raise ArgumentError, 'target must be an absolute URI (e.g. https://example.com/post/100)' unless target_uri.absolute?
+        message = 'must be an absolute URI (e.g. https://example.com/post/100)'
+
+        raise ArgumentError, "source #{message}" unless source_uri.absolute?
+        raise ArgumentError, "target #{message}" unless target_uri.absolute?
       end
 
       # @return [String]

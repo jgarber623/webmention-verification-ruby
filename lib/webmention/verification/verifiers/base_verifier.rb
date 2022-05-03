@@ -12,7 +12,9 @@ module Webmention
         @target = target.to_str
         @options = options
 
-        raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}" unless self.class.mime_types.include?(response.mime_type)
+        return if self.class.mime_types.include?(response.mime_type)
+
+        raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}"
       end
 
       def results
