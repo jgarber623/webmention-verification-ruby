@@ -6,15 +6,15 @@ require 'addressable/uri'
 require 'http'
 require 'nokogiri'
 
-require 'webmention/verification/version'
-require 'webmention/verification/exceptions'
+require_relative 'verification/version'
+require_relative 'verification/exceptions'
 
-require 'webmention/verification/client'
-require 'webmention/verification/verifiers'
-require 'webmention/verification/verifiers/base_verifier'
-require 'webmention/verification/verifiers/html_verifier'
-require 'webmention/verification/verifiers/json_verifier'
-require 'webmention/verification/verifiers/plaintext_verifier'
+require_relative 'verification/client'
+require_relative 'verification/verifiers'
+require_relative 'verification/verifiers/base_verifier'
+require_relative 'verification/verifiers/html_verifier'
+require_relative 'verification/verifiers/json_verifier'
+require_relative 'verification/verifiers/plaintext_verifier'
 
 module Webmention
   module Verification
