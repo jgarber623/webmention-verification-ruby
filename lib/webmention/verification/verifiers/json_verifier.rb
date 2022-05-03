@@ -28,7 +28,6 @@ module Webmention
 
           private
 
-          # :reek:TooManyStatements { max_statements: 6 }
           def build_results(comparator, object, matches = [])
             return matches unless object.is_a?(Enumerable)
 
