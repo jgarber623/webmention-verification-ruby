@@ -7,7 +7,6 @@ require 'http'
 require 'nokogiri'
 
 require_relative 'verification/version'
-require_relative 'verification/exceptions'
 
 require_relative 'verification/client'
 require_relative 'verification/verifiers'
@@ -18,6 +17,12 @@ require_relative 'verification/verifiers/plaintext_verifier'
 
 module Webmention
   module Verification
+    class Error < StandardError; end
+    class ArgumentError < Error; end
+    class HttpError < Error; end
+    class InvalidURIError < Error; end
+    class UnsupportedMimeTypeError < Error; end
+
     # Determine whether or not source URI links to target URI.
     #
     # @example
