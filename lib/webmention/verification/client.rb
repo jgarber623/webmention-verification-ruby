@@ -43,24 +43,24 @@ module Webmention
       # @raise [Webmention::Verification::ConnectionError, Webmention::Verification::TimeoutError, Webmention::Verification::TooManyRedirectsError]
       def response
         @response ||= HTTP.follow.headers(HTTP_CLIENT_HEADERS).timeout(connect: 10, read: 10).get(source_uri)
-      rescue HTTP::Error => exception
-        raise HttpError, exception
+      rescue HTTP::Error => e
+        raise HttpError, e
       end
 
       # @return [Addressable::URI]
       # @raise [Webmention::Verification::InvalidURIError]
       def source_uri
         @source_uri ||= Addressable::URI.parse(source)
-      rescue Addressable::URI::InvalidURIError => exception
-        raise InvalidURIError, exception
+      rescue Addressable::URI::InvalidURIError => e
+        raise InvalidURIError, e
       end
 
       # @return [Addressable::URI]
       # @raise [Webmention::Verification::InvalidURIError]
       def target_uri
         @target_uri ||= Addressable::URI.parse(target)
-      rescue Addressable::URI::InvalidURIError => exception
-        raise InvalidURIError, exception
+      rescue Addressable::URI::InvalidURIError => e
+        raise InvalidURIError, e
       end
 
       # @return [Boolean]
