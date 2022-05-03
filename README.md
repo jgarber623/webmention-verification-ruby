@@ -11,13 +11,13 @@
 ## Key Features
 
 - Compliant with [Section 3.2.2](https://www.w3.org/TR/webmention/#webmention-verification) of [the W3C's Webmention Recommendation](https://www.w3.org/TR/webmention/).
-- Supports Ruby 2.5 and newer.
+- Supports Ruby 2.6 and newer.
 
 ## Getting Started
 
-Before installing and using webmention-verification-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.5 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
+Before installing and using webmention-verification-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.6 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
 
-webmention-verification-ruby is developed using Ruby 2.5.9 and is additionally tested against Ruby 2.6, 2.7, and 3.0 using [CircleCI](https://app.circleci.com/pipelines/github/jgarber623/webmention-verification-ruby).
+webmention-verification-ruby is developed using Ruby 2.6.10 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [CircleCI](https://app.circleci.com/pipelines/github/jgarber623/webmention-verification-ruby).
 
 ## Installation
 
