@@ -3,10 +3,10 @@
 module Webmention
   module Verification
     module Verifiers
-      class HtmlVerifier < BaseVerifier
+      class HtmlVerifier < Verifier
         @mime_types = ['text/html']
 
-        Verifiers.register(self)
+        Client.register_verifier(self)
 
         HTML_ATTRIBUTE_MAP = {
           'cite'   => %w[blockquote del ins q],

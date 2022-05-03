@@ -3,10 +3,10 @@
 module Webmention
   module Verification
     module Verifiers
-      class JsonVerifier < BaseVerifier
+      class JsonVerifier < Verifier
         @mime_types = ['application/json']
 
-        Verifiers.register(self)
+        Client.register_verifier(self)
 
         private
 

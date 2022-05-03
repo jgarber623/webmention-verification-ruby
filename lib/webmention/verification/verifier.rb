@@ -2,7 +2,7 @@
 
 module Webmention
   module Verification
-    class BaseVerifier
+    class Verifier
       class << self
         attr_reader :mime_types
       end
@@ -11,10 +11,6 @@ module Webmention
         @response = response
         @target = target.to_str
         @options = options
-
-        return if self.class.mime_types.include?(response.mime_type)
-
-        raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}"
       end
 
       def results

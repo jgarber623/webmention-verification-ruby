@@ -8,7 +8,17 @@ module Webmention
         user_agent: 'Webmention Verification Client (https://rubygems.org/gems/webmention-verification)'
       }.freeze
 
+      @registered_verifiers = {}
+
+      class << self
+        attr_reader :registered_verifiers
+      end
+
       attr_reader :source, :target
+
+      def self.register_verifier(klass)
+        klass.mime_types.each { |mime_type| @registered_verifiers[mime_type] = klass }
+      end
 
       # Create a client used to determine whether or not source URI links to target URI.
       #
@@ -73,19 +83,18 @@ module Webmention
       # @return [Boolean]
       # @raise [Webmention::Verification::UnsupportedMimeTypeError]
       def verified?
-        raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}" unless verifier_for_mime_type
-
-        verifier_for_mime_type.new(response, target, **@options).verified?
+        self.class
+            .registered_verifiers[response.mime_type]
+            .new(response, target, **@options)
+            .verified?
+      rescue NoMethodError
+        raise UnsupportedMimeTypeError, "Unsupported MIME Type: #{response.mime_type}"
       end
 
       private
 
       def absolute?(uri)
         uri.http? || uri.https?
-      end
-
-      def verifier_for_mime_type
-        @verifier_for_mime_type ||= Verifiers.registered[response.mime_type]
       end
     end
   end

@@ -3,10 +3,10 @@
 module Webmention
   module Verification
     module Verifiers
-      class PlaintextVerifier < BaseVerifier
+      class PlaintextVerifier < Verifier
         @mime_types = ['text/plain']
 
-        Verifiers.register(self)
+        Client.register_verifier(self)
 
         private
 
