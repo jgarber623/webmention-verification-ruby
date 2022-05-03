@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Webmention::Verification::Client, '#response' do
   let(:source) { 'https://source.example.com' }
   let(:target) { 'https://target.example.com/post/100' }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FixtureHelpers
   def read_fixture(uri, format = 'html')
     matches = uri.match(%r{^https?://(?<domain>.*?\..*?\.com)(?<path>.*)$})

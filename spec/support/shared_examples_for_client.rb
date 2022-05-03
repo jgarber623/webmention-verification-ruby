@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples 'when in strict mode' do
   let(:target) { 'https://target.example.com/post/100' }
   let(:client) { described_class.new(source, target) }
