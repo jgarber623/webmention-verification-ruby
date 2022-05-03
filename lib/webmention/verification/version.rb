@@ -2,6 +2,6 @@
 
 module Webmention
   module Verification
-    VERSION = '5.0.0'.freeze
+    VERSION = '5.0.0'
   end
 end
