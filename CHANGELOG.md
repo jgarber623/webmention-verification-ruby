@@ -1,5 +1,15 @@
 # Changelog
 
+## 6.0.0 / 2022-05-03
+
+- Move/rename BaseVerifier to Verifier class (6965e98)
+- Remove addressable dependency (38a004e)
+- Raise Webmention::Verification::SSLError on SSL errors (be9d922)
+- Update ~~Addressable and~~ Nokogiri dependency constraints (822b7ae)
+- **Breaking change:** Update minimum supported Ruby to 2.6 (07a7c5e)
+- Update development Ruby version to 2.6.10 (d67d583)
+- Remove Reek (b10b648)
+
 ## 5.0.0 / 2021-06-08
 
 - Add `Webmention::Verification::Client#inspect` method (361c437)
