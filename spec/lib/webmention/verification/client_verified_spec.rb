@@ -26,24 +26,21 @@ RSpec.describe Webmention::Verification::Client, '#verified?' do
     it_behaves_like 'strict mode is true'
     it_behaves_like 'strict mode is false'
 
-    context 'when in strict mode testing deep value matching' do
-      let(:target) { 'https://target.example.com/post/100' }
+    %w[array hash].each do |obj|
+      context "when deep value matching #{obj}" do
+        subject(:verification) { described_class.new(source, target, strict: false).verified? }
 
-      before do
-        stub_request(:get, source).to_return(
-          headers: http_response_headers,
-          body: read_fixture(source, file_format)
-        )
-      end
+        let(:source) { "https://source.example.com/mentions-target-absolute-url-deep-#{obj}" }
+        let(:target) { 'https://target.example.com/post/100' }
 
-      %w[array hash].each do |obj|
-        context "when matching #{obj}" do
-          subject(:verification) { described_class.new(source, target, strict: false).verified? }
-
-          let(:source) { "https://source.example.com/mentions-target-absolute-url-deep-#{obj}" }
-
-          it { is_expected.to be(true) }
+        before do
+          stub_request(:get, source).to_return(
+            headers: http_response_headers,
+            body: read_fixture(source, file_format)
+          )
         end
+
+        it { is_expected.to be(true) }
       end
     end
   end
@@ -58,27 +55,24 @@ RSpec.describe Webmention::Verification::Client, '#verified?' do
     it_behaves_like 'strict mode is true'
     it_behaves_like 'strict mode is false'
 
-    context 'when in strict mode testing extended element matching' do
-      let(:target) { 'https://target.example.com/post/100' }
+    %w[
+      area audio blockquote del embed img-src img-srcset ins
+      object q source-src source-srcset video-track video
+    ].each do |element|
+      context "when matching #{element}" do
+        subject(:verification) { described_class.new(source, target, strict: false).verified? }
 
-      before do
-        stub_request(:get, source).to_return(
-          headers: http_response_headers,
-          body: read_fixture(source, file_format)
-        )
-      end
+        let(:source) { "https://source.example.com/mentions-target-absolute-url-#{element}" }
+        let(:target) { 'https://target.example.com/post/100' }
 
-      %w[
-        area audio blockquote del embed img-src img-srcset ins
-        object q source-src source-srcset video-track video
-      ].each do |element|
-        context "when matching #{element}" do
-          subject(:verification) { described_class.new(source, target, strict: false).verified? }
-
-          let(:source) { "https://source.example.com/mentions-target-absolute-url-#{element}" }
-
-          it { is_expected.to be(true) }
+        before do
+          stub_request(:get, source).to_return(
+            headers: http_response_headers,
+            body: read_fixture(source, file_format)
+          )
         end
+
+        it { is_expected.to be(true) }
       end
     end
   end
