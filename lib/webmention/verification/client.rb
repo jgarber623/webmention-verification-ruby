@@ -45,7 +45,7 @@ module Webmention
       end
 
       # @return [HTTP::Response]
-      # @raise [Webmention::Verification::ConnectionError, Webmention::Verification::TimeoutError, Webmention::Verification::TooManyRedirectsError]
+      # @raise [Webmention::Verification::HttpError]
       def response
         @response ||= HTTP.follow.headers(HTTP_CLIENT_HEADERS).timeout(connect: 10, read: 10).get(source_uri)
       rescue HTTP::Error => e
