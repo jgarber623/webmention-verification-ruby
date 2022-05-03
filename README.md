@@ -4,7 +4,7 @@
 
 [![Gem](https://img.shields.io/gem/v/webmention-verification.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
 [![Downloads](https://img.shields.io/gem/dt/webmention-verification.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/webmention-verification)
-[![Build](https://img.shields.io/circleci/build/github/jgarber623/webmention-verification-ruby?logo=circleci&style=for-the-badge)](https://app.circleci.com/pipelines/github/jgarber623/webmention-verification-ruby)
+[![Build](https://img.shields.io/github/workflow/status/jgarber623/webmention-verification-ruby/CI?logo=github&style=for-the-badge)](https://github.com/jgarber623/webmention-verification-ruby/actions/workflows/ci.yml)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/webmention-verification-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/webmention-verification-ruby)
 [![Coverage](https://img.shields.io/codeclimate/c/jgarber623/webmention-verification-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/webmention-verification-ruby/code)
 
@@ -17,7 +17,7 @@
 
 Before installing and using webmention-verification-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.6 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
 
-webmention-verification-ruby is developed using Ruby 2.6.10 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [CircleCI](https://app.circleci.com/pipelines/github/jgarber623/webmention-verification-ruby).
+webmention-verification-ruby is developed using Ruby 2.6.10 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [GitHub Actions](https://github.com/jgarber623/webmention-verification-ruby/actions).
 
 ## Installation
 

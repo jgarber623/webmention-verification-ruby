@@ -8,7 +8,7 @@ There are a couple ways you can help improve webmention-verification-ruby:
 
 ## Getting Started
 
-webmention-verification-ruby is developed using Ruby 2.6.10 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [CircleCI](https://app.circleci.com/pipelines/github/jgarber623/webmention-verification-ruby).
+webmention-verification-ruby is developed using Ruby 2.6.10 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [GitHub Actions](https://github.com/jgarber623/webmention-verification-ruby/actions).
 
 Before making changes to webmention-verification-ruby, you'll want to install Ruby 2.6.10. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm). Once you've installed Ruby 2.6.10 using your method of choice, install the project's gems by running:
 
