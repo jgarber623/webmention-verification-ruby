@@ -69,8 +69,8 @@ client = Webmention::Verification::Client.new(source, target)
 puts client.source     # => 'https://source.example.com/post/100'
 puts client.target     # => 'https://target.example.com/post/100'
 
-puts client.source_uri # => #<Addressable::URI>
-puts client.target_uri # => #<Addressable::URI>
+puts client.source_uri # => #<HTTP::URI>
+puts client.target_uri # => #<HTTP::URI>
 
 puts client.response   # => #<HTTP::Response>
 

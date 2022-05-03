@@ -32,8 +32,8 @@ module Webmention
 
         message = 'must be an absolute URI (e.g. https://example.com/post/100)'
 
-        raise ArgumentError, "source #{message}" unless source_uri.absolute?
-        raise ArgumentError, "target #{message}" unless target_uri.absolute?
+        raise ArgumentError, "source #{message}" unless absolute?(source_uri)
+        raise ArgumentError, "target #{message}" unless absolute?(target_uri)
       end
 
       # @return [String]
@@ -54,18 +54,18 @@ module Webmention
         raise SSLError, e
       end
 
-      # @return [Addressable::URI]
+      # @return [HTTP::URI]
       # @raise [Webmention::Verification::InvalidURIError]
       def source_uri
-        @source_uri ||= Addressable::URI.parse(source)
+        @source_uri ||= HTTP::URI.parse(source)
       rescue Addressable::URI::InvalidURIError => e
         raise InvalidURIError, e
       end
 
-      # @return [Addressable::URI]
+      # @return [HTTP::URI]
       # @raise [Webmention::Verification::InvalidURIError]
       def target_uri
-        @target_uri ||= Addressable::URI.parse(target)
+        @target_uri ||= HTTP::URI.parse(target)
       rescue Addressable::URI::InvalidURIError => e
         raise InvalidURIError, e
       end
@@ -79,6 +79,10 @@ module Webmention
       end
 
       private
+
+      def absolute?(uri)
+        uri.http? || uri.https?
+      end
 
       def verifier_for_mime_type
         @verifier_for_mime_type ||= Verifiers.registered[response.mime_type]
