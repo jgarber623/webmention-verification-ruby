@@ -16,9 +16,9 @@ RSpec.describe Webmention::Verification::Client do
     end
 
     it 'raises an ArgumentError when not an absolute URI' do
-      message = 'source must be an absolute URI (e.g. https://example.com/post/100)'
-
-      expect { described_class.new('/', target) }.to raise_error(Webmention::Verification::ArgumentError, message)
+      expect { described_class.new('/', target) }.to raise_error(
+        Webmention::Verification::ArgumentError, 'source must be an absolute URI (e.g. https://example.com/post/100)'
+      )
     end
   end
 
@@ -34,9 +34,9 @@ RSpec.describe Webmention::Verification::Client do
     end
 
     it 'raises an ArgumentError when not an absolute URI' do
-      message = 'target must be an absolute URI (e.g. https://example.com/post/100)'
-
-      expect { described_class.new(source, '/') }.to raise_error(Webmention::Verification::ArgumentError, message)
+      expect { described_class.new(source, '/') }.to raise_error(
+        Webmention::Verification::ArgumentError, 'target must be an absolute URI (e.g. https://example.com/post/100)'
+      )
     end
   end
 end
