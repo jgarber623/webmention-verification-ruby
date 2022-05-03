@@ -9,12 +9,12 @@ module Webmention
         Verifiers.register(self)
 
         HTML_ATTRIBUTE_MAP = {
-          cite:   %w[blockquote del ins q],
-          data:   %w[object],
-          href:   %w[a area],
-          poster: %w[video],
-          src:    %w[audio embed img source track video],
-          srcset: %w[img source]
+          'cite'   => %w[blockquote del ins q],
+          'data'   => %w[object],
+          'href'   => %w[a area],
+          'poster' => %w[video],
+          'src'    => %w[audio embed img source track video],
+          'srcset' => %w[img source]
         }.freeze
 
         private
@@ -28,7 +28,7 @@ module Webmention
         end
 
         def search_doc(attribute, elements)
-          regexp = attribute == :srcset ? srcset_attribute_regexp : target_regexp
+          regexp = attribute == 'srcset' ? srcset_attribute_regexp : target_regexp
 
           doc.css(*elements.map { |element| "#{element}[#{attribute}]" }).find_all do |node|
             node[attribute].match?(regexp)
