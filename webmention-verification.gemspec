@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
     'rubygems_mfa_required' => 'true'
   }
 
-  spec.add_runtime_dependency 'addressable', '~> 2.7'
+  spec.add_runtime_dependency 'addressable', '~> 2.8'
   spec.add_runtime_dependency 'http', '~> 5.0'
-  spec.add_runtime_dependency 'nokogiri', '~> 1.11'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.13'
 end
