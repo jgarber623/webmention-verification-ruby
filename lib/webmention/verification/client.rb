@@ -38,7 +38,10 @@ module Webmention
 
       # @return [String]
       def inspect
-        format(%(#<#{self.class.name}:%#0x source: #{source.inspect} target: #{target.inspect} options: #{@options.inspect}>), object_id)
+        "#<#{self.class.name}:#{format('%#0x', object_id)} " \
+          "source: #{source.inspect} " \
+          "target: #{target.inspect} " \
+          "options: #{@options.inspect}>"
       end
 
       # @return [HTTP::Response]
