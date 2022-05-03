@@ -21,6 +21,7 @@ module Webmention
     class ArgumentError < Error; end
     class HttpError < Error; end
     class InvalidURIError < Error; end
+    class SSLError < Error; end
     class UnsupportedMimeTypeError < Error; end
 
     # Determine whether or not source URI links to target URI.

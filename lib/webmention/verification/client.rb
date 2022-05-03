@@ -45,11 +45,13 @@ module Webmention
       end
 
       # @return [HTTP::Response]
-      # @raise [Webmention::Verification::HttpError]
+      # @raise [Webmention::Verification::HttpError, Webmention::Verification::SSLError]
       def response
         @response ||= HTTP.follow.headers(HTTP_CLIENT_HEADERS).timeout(connect: 10, read: 10).get(source_uri)
       rescue HTTP::Error => e
         raise HttpError, e
+      rescue OpenSSL::SSL::SSLError => e
+        raise SSLError, e
       end
 
       # @return [Addressable::URI]

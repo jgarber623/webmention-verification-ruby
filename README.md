@@ -148,6 +148,10 @@ From [httprb/http](https://github.com/httprb/http):
 
 - `Webmention::Verification::HttpError`
 
+From the Ruby Standard Library's [`OpenSSL::SSL::SSLError`](https://ruby-doc.org/stdlib-2.6.10/libdoc/openssl/rdoc/OpenSSL/SSL/SSLError.html):
+
+- `Webmention::Verification::SSLError`
+
 webmention-verification-ruby will also raise a `Webmention::Verification::UnsupportedMimeTypeError` when encountering an `HTTP::Response` instance with an unsupported MIME type.
 
 ## Contributing
