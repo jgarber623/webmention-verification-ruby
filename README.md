@@ -1,5 +1,9 @@
 # webmention-verification-ruby
 
+⚠️ **Deprecation Notice (2022-05-13)** ⚠️ This gem is deprecated in favor of [indieweb/webmention-client-ruby](https://github.com/indieweb/webmention-client-ruby) and will no longer receive updates.
+
+---
+
 **A Ruby gem for verifying a received [webmention](https://indieweb.org/Webmention).**
 
 [![Gem](https://img.shields.io/gem/v/webmention-verification.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/webmention-verification)

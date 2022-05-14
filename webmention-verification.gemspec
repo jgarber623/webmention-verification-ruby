@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Jason Garber']
   spec.email         = ['jason@sixtwothree.org']
 
-  spec.summary       = 'Verify a received webmention.'
+  spec.summary       = 'Deprecated in favor of indieweb-endpoints from 2022-05-13. Verify a received webmention.'
   spec.description   = spec.summary
   spec.homepage      = 'https://github.com/jgarber623/webmention-verification-ruby'
   spec.license       = 'MIT'
@@ -26,6 +26,18 @@ Gem::Specification.new do |spec|
     'changelog_uri'         => "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md",
     'rubygems_mfa_required' => 'true'
   }
+
+  spec.post_install_message = <<NOTICE
+
+  +----------------------------------------------------------+
+  |                                                          |
+  |  webmention-verification is deprecated from 2022-05-13.  |
+  |                                                          |
+  |  Please use the webmention gem instead.                  |
+  |                                                          |
+  +----------------------------------------------------------+
+
+NOTICE
 
   spec.add_runtime_dependency 'http', '~> 5.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.13'
