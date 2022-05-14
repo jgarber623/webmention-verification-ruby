@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.1 / unreleased
+
+- Add deprecation notice (0ba33f2)
+
 ## 6.0.0 / 2022-05-03
 
 - Move/rename BaseVerifier to Verifier class (6965e98)
