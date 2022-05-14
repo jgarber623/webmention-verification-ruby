@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Jason Garber']
   spec.email         = ['jason@sixtwothree.org']
 
-  spec.summary       = 'Deprecated in favor of indieweb-endpoints from 2022-05-13. Verify a received webmention.'
+  spec.summary       = 'Deprecated in favor of webmention from 2022-05-13. Verify a received webmention.'
   spec.description   = spec.summary
   spec.homepage      = 'https://github.com/jgarber623/webmention-verification-ruby'
   spec.license       = 'MIT'
