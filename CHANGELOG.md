@@ -1,6 +1,10 @@
 # Changelog
 
-## 6.0.1 / unreleased
+## 6.0.2 / 2022-05-13
+
+- Fix deprecation message in spec description (9c196d5)
+
+## 6.0.1 / 2022-05-13
 
 - Add deprecation notice (0ba33f2)
 
